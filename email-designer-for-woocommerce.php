@@ -93,6 +93,16 @@ class EmailDesignerWooCommerce {
         add_shortcode( 'customer_name', [ $this, 'shortcode_customer_name' ] );
         add_shortcode( 'order_total', [ $this, 'shortcode_order_total' ] );
         add_shortcode( 'order_details', [ $this, 'shortcode_order_details' ] );
+        add_shortcode( 'customer_note', [ $this, 'shortcode_customer_note' ] );
+        add_shortcode( 'order_number', [ $this, 'shortcode_order_number' ] );
+        add_shortcode( 'order_date', [ $this, 'shortcode_order_date' ] );
+        add_shortcode( 'refund_amount', [ $this, 'shortcode_refund_amount' ] );
+        add_shortcode( 'refund_details', [ $this, 'shortcode_refund_details' ] );
+        add_shortcode( 'site_email', [ $this, 'shortcode_site_email' ] );
+        add_shortcode( 'site_name', [ $this, 'shortcode_site_name' ] );
+        add_shortcode( 'username', [ $this, 'shortcode_username' ] );
+        add_shortcode( 'my_account_link', [ $this, 'shortcode_my_account_link' ] );
+        add_shortcode( 'reset_password_link', [ $this, 'shortcode_reset_password_link' ] );        
 
         // Initialize filters for custom email content.
         add_action( 'woocommerce_before_send_email', [ $this, 'init_custom_email_content_filters' ], 10, 2 );
@@ -261,12 +271,18 @@ class EmailDesignerWooCommerce {
      */
     public function render_settings_page() {
         $tab = isset( $_GET['tab'] ) ? sanitize_text_field( $_GET['tab'] ) : 'general';
+        // Build the base URL for your settings page with the required query parameters.
+        $base_url = admin_url( 'edit.php?post_type=email_template&page=email-designer-settings' );
         ?>
         <div class="wrap">
             <h1><?php esc_html_e( 'Email Designer Settings', 'email-designer-for-woocommerce' ); ?></h1>
             <h2 class="nav-tab-wrapper">
-                <a href="?page=email-designer-settings&tab=general" class="nav-tab <?php echo $tab === 'general' ? 'nav-tab-active' : ''; ?>"><?php esc_html_e( 'General', 'email-designer-for-woocommerce' ); ?></a>
-                <a href="?page=email-designer-settings&tab=templates" class="nav-tab <?php echo $tab === 'templates' ? 'nav-tab-active' : ''; ?>"><?php esc_html_e( 'Templates', 'email-designer-for-woocommerce' ); ?></a>
+                <a href="<?php echo esc_url( add_query_arg( 'tab', 'general', $base_url ) ); ?>" class="nav-tab <?php echo $tab === 'general' ? 'nav-tab-active' : ''; ?>">
+                    <?php esc_html_e( 'General', 'email-designer-for-woocommerce' ); ?>
+                </a>
+                <a href="<?php echo esc_url( add_query_arg( 'tab', 'templates', $base_url ) ); ?>" class="nav-tab <?php echo $tab === 'templates' ? 'nav-tab-active' : ''; ?>">
+                    <?php esc_html_e( 'Templates', 'email-designer-for-woocommerce' ); ?>
+                </a>
             </h2>
             <div class="tab-content">
                 <?php
@@ -483,6 +499,168 @@ class EmailDesignerWooCommerce {
             }
         }
         return null;
+    }
+
+    /**
+     * Shortcode to display the customer note from the order.
+     *
+     * @since 1.0.0
+     * @return string
+     */
+    public function shortcode_customer_note() {
+        $order = $this->get_current_email_order();
+        if ( $order ) {
+            return esc_html( $order->get_customer_note() );
+        }
+        return '';
+    }
+
+    /**
+     * Shortcode to display the order number.
+     *
+     * @since 1.0.0
+     * @return string
+     */
+    public function shortcode_order_number() {
+        $order = $this->get_current_email_order();
+        if ( $order ) {
+            return esc_html( $order->get_order_number() );
+        }
+        return '';
+    }
+
+    /**
+     * Shortcode to display the order creation date.
+     *
+     * @since 1.0.0
+     * @return string
+     */
+    public function shortcode_order_date() {
+        $order = $this->get_current_email_order();
+        if ( $order ) {
+            $date = $order->get_date_created();
+            if ( $date ) {
+                return esc_html( wc_format_datetime( $date ) );
+            }
+        }
+        return '';
+    }
+
+    /**
+     * Shortcode to display the total refunded amount for the order.
+     *
+     * @since 1.0.0
+     * @return string
+     */
+    public function shortcode_refund_amount() {
+        $order = $this->get_current_email_order();
+        if ( $order ) {
+            $total_refunded = $order->get_total_refunded();
+            return wc_price( $total_refunded );
+        }
+        return '';
+    }
+
+    /**
+     * Shortcode to display detailed refund information.
+     *
+     * Outputs a table with the refund date, amount, and reason for each refund.
+     *
+     * @since 1.0.0
+     * @return string
+     */
+    public function shortcode_refund_details() {
+        $order = $this->get_current_email_order();
+        if ( $order ) {
+            $refunds = $order->get_refunds();
+            if ( ! empty( $refunds ) ) {
+                ob_start();
+                ?>
+                <table class="td" cellspacing="0" cellpadding="6" border="1" style="width: 100%; border-collapse: collapse;">
+                    <thead>
+                        <tr>
+                            <th class="td" scope="col"><?php esc_html_e( 'Refund Date', 'woocommerce' ); ?></th>
+                            <th class="td" scope="col"><?php esc_html_e( 'Refund Amount', 'woocommerce' ); ?></th>
+                            <th class="td" scope="col"><?php esc_html_e( 'Reason', 'woocommerce' ); ?></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ( $refunds as $refund ) : ?>
+                            <tr>
+                                <td class="td"><?php echo esc_html( wc_format_datetime( $refund->get_date_created() ) ); ?></td>
+                                <td class="td"><?php echo wc_price( $refund->get_total() ); ?></td>
+                                <td class="td"><?php echo esc_html( $refund->get_reason() ); ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+                <?php
+                return ob_get_clean();
+            }
+        }
+        return '';
+    }
+
+    /**
+     * Shortcode to display the site email address.
+     *
+     * @since 1.0.0
+     * @return string
+     */
+    public function shortcode_site_email() {
+        return esc_html( get_bloginfo( 'admin_email' ) );
+    }
+
+    /**
+     * Shortcode to display the site name.
+     *
+     * @since 1.0.0
+     * @return string
+     */
+    public function shortcode_site_name() {
+        return esc_html( get_bloginfo( 'name' ) );
+    }
+
+    /**
+     * Shortcode to display the username of the order's customer.
+     *
+     * @since 1.0.0
+     * @return string
+     */
+    public function shortcode_username() {
+        $order = $this->get_current_email_order();
+        if ( $order ) {
+            $user_id = $order->get_user_id();
+            if ( $user_id ) {
+                $user = get_userdata( $user_id );
+                if ( $user ) {
+                    return esc_html( $user->user_login );
+                }
+            }
+        }
+        return '';
+    }
+
+    /**
+     * Shortcode to display the My Account page URL.
+     *
+     * @since 1.0.0
+     * @return string
+     */
+    public function shortcode_my_account_link() {
+        $url = wc_get_page_permalink( 'myaccount' );
+        return esc_url( $url );
+    }
+
+    /**
+     * Shortcode to display the Reset Password link.
+     *
+     * @since 1.0.0
+     * @return string
+     */
+    public function shortcode_reset_password_link() {
+        $url = wc_get_endpoint_url( 'lost-password', '', wc_get_page_permalink( 'myaccount' ) );
+        return esc_url( $url );
     }
 
     /**

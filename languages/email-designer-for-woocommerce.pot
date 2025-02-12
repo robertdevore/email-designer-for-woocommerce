@@ -1,0 +1,189 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Email Designer for WooCommerce®\n"
+"POT-Creation-Date: 2025-02-12 15:53-0500\n"
+"PO-Revision-Date: 2025-02-12 15:53-0500\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"X-Generator: Poedit 3.5\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: email-designer-for-woocommerce.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+"X-Poedit-SearchPathExcluded-1: vendor\n"
+
+#: email-designer-for-woocommerce.php:119
+msgid "Email Templates"
+msgstr ""
+
+#: email-designer-for-woocommerce.php:120
+#: email-designer-for-woocommerce.php:122
+msgid "Email Template"
+msgstr ""
+
+#: email-designer-for-woocommerce.php:121
+msgid "Email Designer"
+msgstr ""
+
+#: email-designer-for-woocommerce.php:123
+msgid "Add New"
+msgstr ""
+
+#: email-designer-for-woocommerce.php:124
+msgid "Add New Template"
+msgstr ""
+
+#: email-designer-for-woocommerce.php:125
+msgid "New Email Template"
+msgstr ""
+
+#: email-designer-for-woocommerce.php:126
+msgid "Edit Email Template"
+msgstr ""
+
+#: email-designer-for-woocommerce.php:127
+msgid "View Email Template"
+msgstr ""
+
+#: email-designer-for-woocommerce.php:128
+msgid "All Email Templates"
+msgstr ""
+
+#: email-designer-for-woocommerce.php:129
+msgid "Search Email Templates"
+msgstr ""
+
+#: email-designer-for-woocommerce.php:130
+msgid "Parent Email Templates:"
+msgstr ""
+
+#: email-designer-for-woocommerce.php:131
+msgid "No email templates found."
+msgstr ""
+
+#: email-designer-for-woocommerce.php:132
+msgid "No email templates found in Trash."
+msgstr ""
+
+#: email-designer-for-woocommerce.php:159
+msgid "General Settings"
+msgstr ""
+
+#: email-designer-for-woocommerce.php:161
+msgid "General configuration options for Email Designer."
+msgstr ""
+
+#: email-designer-for-woocommerce.php:169
+msgid "Custom Email CSS"
+msgstr ""
+
+#: email-designer-for-woocommerce.php:188
+msgid "Template Assignments"
+msgstr ""
+
+#: email-designer-for-woocommerce.php:190
+msgid ""
+"Assign custom templates to WooCommerce emails. Each email type can be "
+"designed differently."
+msgstr ""
+
+#: email-designer-for-woocommerce.php:258
+#: email-designer-for-woocommerce.php:278
+msgid "Email Designer Settings"
+msgstr ""
+
+#: email-designer-for-woocommerce.php:259
+msgid "Settings"
+msgstr ""
+
+#: email-designer-for-woocommerce.php:281
+msgid "General"
+msgstr ""
+
+#: email-designer-for-woocommerce.php:284
+msgid "Templates"
+msgstr ""
+
+#: email-designer-for-woocommerce.php:326
+msgid "WooCommerce is not active."
+msgstr ""
+
+#: email-designer-for-woocommerce.php:337
+msgid "Admin New Order"
+msgstr ""
+
+#: email-designer-for-woocommerce.php:352
+msgid "Email Type"
+msgstr ""
+
+#: email-designer-for-woocommerce.php:353
+msgid "Assigned Template"
+msgstr ""
+
+#: email-designer-for-woocommerce.php:368
+msgid "Default WooCommerce Template"
+msgstr ""
+
+#: email-designer-for-woocommerce.php:438
+msgid "Product"
+msgstr ""
+
+#: email-designer-for-woocommerce.php:439
+msgid "Quantity"
+msgstr ""
+
+#: email-designer-for-woocommerce.php:440
+msgid "Price"
+msgstr ""
+
+#: email-designer-for-woocommerce.php:454
+msgid "Total"
+msgstr ""
+
+#: email-designer-for-woocommerce.php:582
+msgid "Refund Date"
+msgstr ""
+
+#: email-designer-for-woocommerce.php:583
+msgid "Refund Amount"
+msgstr ""
+
+#: email-designer-for-woocommerce.php:584
+msgid "Reason"
+msgstr ""
+
+#: templates/base-email-template.php:282
+msgid "No content available for this email."
+msgstr ""
+
+#. Plugin Name of the plugin/theme
+msgid "Email Designer for WooCommerce®"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "https://robertdevore.com/project/email-designer-for-woocommerce/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"Design custom email templates for WooCommerce® using the core WordPress® "
+"editor."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Robert DeVore"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "https://robertdevore.com/"
+msgstr ""

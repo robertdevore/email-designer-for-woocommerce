@@ -4,15 +4,15 @@
  * The plugin bootstrap file.
  *
  * @link              https://robertdevore.com
- * @since             1.0.0
+ * @since             0.1.0
  * @package           EmailDesignerWooCommerce
  *
  * @wordpress-plugin
  *
  * Plugin Name: Email Designer for WooCommerce®
  * Description: Design custom email templates for WooCommerce® using the core WordPress® editor.
- * Plugin URI:  https://robertdevore.com/project/email-designer-for-woocommerce/
- * Version:     1.0.0
+ * Plugin URI:  https://github.com/robertdevore/email-designer-for-woocommerce/
+ * Version:     0.1.0
  * Author:      Robert DeVore
  * Author URI:  https://robertdevore.com/
  * License:     GPL-2.0+
@@ -51,7 +51,7 @@ new WPComPluginHandler( plugin_basename( __FILE__ ), 'https://robertdevore.com/w
 /**
  * Load plugin text domain for localization.
  *
- * @since  1.0.0
+ * @since  0.1.0
  * @return void
  */
 function edwc_load_textdomain() {
@@ -78,7 +78,7 @@ add_action( 'plugins_loaded', 'edwc_load_textdomain' );
  * - Initializing custom content filters during the WooCommerce email sending process.
  *
  * @package EmailDesignerWooCommerce
- * @since   1.0.0
+ * @since   0.1.0
  */
 class EmailDesignerWooCommerce {
 
@@ -111,7 +111,7 @@ class EmailDesignerWooCommerce {
     /**
      * Register a custom post type for email templates.
      * 
-     * @since  1.0.0
+     * @since  0.1.0
      * @return void
      */
     public function register_email_template_post_type() {
@@ -149,7 +149,7 @@ class EmailDesignerWooCommerce {
     /**
      * Register plugin settings.
      * 
-     * @since  1.0.0
+     * @since  0.1.0
      * @return void
      */
     public function register_settings() {
@@ -202,7 +202,7 @@ class EmailDesignerWooCommerce {
     /**
      * Sanitize the template settings.
      * 
-     * @since  1.0.0
+     * @since  0.1.0
      * @return array
      */
     public function sanitize_template_settings( $input ) {
@@ -216,7 +216,7 @@ class EmailDesignerWooCommerce {
     /**
      * Override WooCommerce email templates with custom templates.
      * 
-     * @since  1.0.0
+     * @since  0.1.0
      * @return mixed
      */
     public function override_email_templates( $template, $template_name, $template_path ) {
@@ -249,7 +249,7 @@ class EmailDesignerWooCommerce {
     /**
      * Add the Email Designer settings page as a submenu under Email Templates.
      * 
-     * @since  1.0.0
+     * @since  0.1.0
      * @return void
      */
     public function add_settings_page() {
@@ -266,7 +266,7 @@ class EmailDesignerWooCommerce {
     /**
      * Render the settings page with tabs.
      * 
-     * @since  1.0.0
+     * @since  0.1.0
      * @return void
      */
     public function render_settings_page() {
@@ -300,7 +300,7 @@ class EmailDesignerWooCommerce {
     /**
      * Render general settings tab.
      * 
-     * @since  1.0.0
+     * @since  0.1.0
      * @return void
      */
     public function render_general_settings() {
@@ -318,7 +318,7 @@ class EmailDesignerWooCommerce {
      * return all email types (for example, the admin new order email is sometimes omitted),
      * we add it manually if necessary.
      * 
-     * @since  1.0.0
+     * @since  0.1.0
      * @return void
      */
     public function render_template_settings() {
@@ -396,7 +396,7 @@ class EmailDesignerWooCommerce {
     /**
      * Shortcode to display customer name in the email.
      * 
-     * @since  1.0.0
+     * @since  0.1.0
      * @return string
      */
     public function shortcode_customer_name() {
@@ -410,7 +410,7 @@ class EmailDesignerWooCommerce {
     /**
      * Shortcode to display order total in the email.
      * 
-     * @since  1.0.0
+     * @since  0.1.0
      * @return string
      */
     public function shortcode_order_total() {
@@ -424,7 +424,7 @@ class EmailDesignerWooCommerce {
     /**
      * Shortcode to display customer order details dynamically.
      * 
-     * @since  1.0.0
+     * @since  0.1.0
      * @return bool|string
      */
     public function shortcode_order_details() {
@@ -465,7 +465,7 @@ class EmailDesignerWooCommerce {
     /**
      * Utility function to get the current email's order object.
      * 
-     * @since  1.0.0
+     * @since  0.1.0
      * @return mixed
      */
     private function get_current_email_order() {
@@ -484,7 +484,7 @@ class EmailDesignerWooCommerce {
     /**
      * Utility function to get the current email object.
      * 
-     * @since  1.0.0
+     * @since  0.1.0
      * @return mixed
      */
     private function get_current_email() {
@@ -504,7 +504,7 @@ class EmailDesignerWooCommerce {
     /**
      * Shortcode to display the customer note from the order.
      *
-     * @since 1.0.0
+     * @since 0.1.0
      * @return string
      */
     public function shortcode_customer_note() {
@@ -518,7 +518,7 @@ class EmailDesignerWooCommerce {
     /**
      * Shortcode to display the order number.
      *
-     * @since 1.0.0
+     * @since 0.1.0
      * @return string
      */
     public function shortcode_order_number() {
@@ -532,7 +532,7 @@ class EmailDesignerWooCommerce {
     /**
      * Shortcode to display the order creation date.
      *
-     * @since 1.0.0
+     * @since 0.1.0
      * @return string
      */
     public function shortcode_order_date() {
@@ -549,7 +549,7 @@ class EmailDesignerWooCommerce {
     /**
      * Shortcode to display the total refunded amount for the order.
      *
-     * @since 1.0.0
+     * @since 0.1.0
      * @return string
      */
     public function shortcode_refund_amount() {
@@ -566,7 +566,7 @@ class EmailDesignerWooCommerce {
      *
      * Outputs a table with the refund date, amount, and reason for each refund.
      *
-     * @since 1.0.0
+     * @since 0.1.0
      * @return string
      */
     public function shortcode_refund_details() {
@@ -604,7 +604,7 @@ class EmailDesignerWooCommerce {
     /**
      * Shortcode to display the site email address.
      *
-     * @since 1.0.0
+     * @since 0.1.0
      * @return string
      */
     public function shortcode_site_email() {
@@ -614,7 +614,7 @@ class EmailDesignerWooCommerce {
     /**
      * Shortcode to display the site name.
      *
-     * @since 1.0.0
+     * @since 0.1.0
      * @return string
      */
     public function shortcode_site_name() {
@@ -624,7 +624,7 @@ class EmailDesignerWooCommerce {
     /**
      * Shortcode to display the username of the order's customer.
      *
-     * @since 1.0.0
+     * @since 0.1.0
      * @return string
      */
     public function shortcode_username() {
@@ -644,7 +644,7 @@ class EmailDesignerWooCommerce {
     /**
      * Shortcode to display the My Account page URL.
      *
-     * @since 1.0.0
+     * @since 0.1.0
      * @return string
      */
     public function shortcode_my_account_link() {
@@ -655,7 +655,7 @@ class EmailDesignerWooCommerce {
     /**
      * Shortcode to display the Reset Password link.
      *
-     * @since 1.0.0
+     * @since 0.1.0
      * @return string
      */
     public function shortcode_reset_password_link() {
@@ -669,7 +669,7 @@ class EmailDesignerWooCommerce {
      * @param WC_Email $email The email object.
      * @param WC_Order $order The order object.
      * 
-     * @since  1.0.0
+     * @since  0.1.0
      * @return void
      */
     public function init_custom_email_content_filters( $email, $order ) {

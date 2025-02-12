@@ -279,4 +279,4 @@ if ( $template_id ) {
 }
 
 // Fallback output if no custom template is assigned.
-echo '<p>' . esc_html__( 'No content available for this email.', 'email-designer-woocommerce' ) . '</p>';
+echo '<p>' . esc_html__( 'No content available for this email.', 'email-designer-for-woocommerce' ) . '</p>';

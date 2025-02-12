@@ -12,6 +12,10 @@ class ComposerStaticInit3c574ab59f002da3f7263f36e0881f36
             'Symfony\\Component\\CssSelector\\' => 30,
             'Sabberworm\\CSS\\' => 15,
         ),
+        'R' => 
+        array (
+            'RobertDevore\\WPComCheck\\' => 24,
+        ),
         'P' => 
         array (
             'Pelago\\Emogrifier\\' => 18,
@@ -26,6 +30,10 @@ class ComposerStaticInit3c574ab59f002da3f7263f36e0881f36
         'Sabberworm\\CSS\\' => 
         array (
             0 => __DIR__ . '/..' . '/sabberworm/php-css-parser/src',
+        ),
+        'RobertDevore\\WPComCheck\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/robertdevore/wpcom-check/src',
         ),
         'Pelago\\Emogrifier\\' => 
         array (

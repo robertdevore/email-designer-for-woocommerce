@@ -1,5 +1,6 @@
 {
     "require": {
-        "pelago/emogrifier": "^7.3"
+        "pelago/emogrifier": "^7.3",
+        "robertdevore/wpcom-check": "^1.0"
     }
 }
